@@ -1,24 +1,17 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import {Home, Browse, Signin, Signup} from  './pages';
-import * as ROUTES from './constants/routes'
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Home, Browse, Signin, Signup } from './pages';
+import * as ROUTES from './constants/routes';
 
 export default function App() {
   return (
-  <Router>
-    <Route exact path='/browse'>
-      <Browse />
-    </Route>
-    <Route exact path='/signin' >
-      <Signin />
-    </Route>
-    <Route exact path='/signup' >
-      <Signup />
-    </Route>
-    <Route exact path={ROUTES.HOME}>
-      <Home />
-    </Route>
-      
-  </Router>);
+    <Router>
+      <Routes>
+        <Route path='/browse' element={<Browse />} />
+        <Route path='/signin' element={<Signin />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path={ROUTES.HOME} element={<Home />} />
+      </Routes>
+    </Router>
+  );
 }
-
