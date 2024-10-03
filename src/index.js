@@ -1,14 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import "normalize.css";
-import App from './app';
-import { GlobalStyles } from "./global-styles";
+import { createRoot } from 'react-dom/client';
+import 'normalize.css';
+import { GlobalStyles } from './global-styles';
+import { App } from './app';
+import { db } from './lib/firebase.prod'; 
+import { FirebaseProvider } from './context/firebase';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const rootElement = document.getElementById('root');
+
+const root = createRoot(rootElement);
 root.render(
-<>
-    <GlobalStyles />
-    <App />
-</>
+  <React.StrictMode>
+    <FirebaseProvider> 
+      <GlobalStyles />
+      <App />
+    </FirebaseProvider>
+  </React.StrictMode>,
 );
-

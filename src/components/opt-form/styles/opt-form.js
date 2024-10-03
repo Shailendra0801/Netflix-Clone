@@ -17,11 +17,11 @@ export const Break = styled.div`
   flex-basis: 100%;
   height: 0;
 `;
-export const Input = styled.input`
-  max-width: 450px;
+export const Input = styled.input`\
   width: 100%;
   border: 0;
-  padding: 10px;
+  opacity: 15%;
+  padding: 1.5rem 1rem 0.5rem;
   height: 70px;
   box-sizing: border-box;
 
@@ -39,11 +39,11 @@ export const Button = styled.button`
   background-color: #e50914;
   color: white;
   text-transform: uppercase;
-  padding: 0 32px;
-  font-size: 26px;
+  padding: 0 10px;
+  font-size: 1.125rem;
   border: 0;
+  width: auto;
   cursor: pointer;
-  max-width: 250px;
   transition: background-color 0.3s ease;
 
   img {
@@ -77,4 +77,10 @@ export const Text = styled.p`
     font-size: 16px;
     line-height: 22px;
   }
+`;
+
+export const Breakk = styled.div`
+  max-width: 5px;
+  width:100%;
+  height: 70px;
 `;
