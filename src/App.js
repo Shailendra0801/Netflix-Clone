@@ -38,9 +38,7 @@ export function App() {
         <Route 
           path={ROUTES.HOME} 
           element={
-            <IsUserRedirect user={user} loggedInPath={ROUTES.BROWSE}>
               <Home />
-            </IsUserRedirect>
           } 
         />
         {/* Fallback for any unmatched routes */}
