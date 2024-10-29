@@ -11,14 +11,12 @@ export function useAuthListener() {
   const { firebase } = useContext(FirebaseContext); 
 
   useEffect(() => {
-    if (!firebase) {
-      console.error("Firebase is not initialized.");
-      return; 
-    }
+    // if (!firebase) {
+    //   console.error("Firebase is not initialized.");
+    //   return; 
+    // }
 
-    const auth = getAuth(firebase);
-
-    const listener = onAuthStateChanged(auth, (authUser) => { 
+    const listener = firebase.auth().onAuthStateChanged((authUser) => { 
       if (authUser) {
         localStorage.setItem('authUser', JSON.stringify(authUser)); 
         setUser(authUser); 
@@ -29,7 +27,7 @@ export function useAuthListener() {
     });
 
     return () => listener(); 
-  }, [firebase]); 
+  }, []); //[firebase]); 
 
   return { user };
 }

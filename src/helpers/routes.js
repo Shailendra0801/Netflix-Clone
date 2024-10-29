@@ -11,13 +11,17 @@ export function IsUserRedirect({ user, loggedInPath, children, ...rest }) {
             return children;
           }
 
-          return (
-            <Navigate
-              to={{
-                pathname: loggedInPath,
-              }}
-            />
-          );
+          if(user){
+            return (
+              <Navigate
+                to={{
+                  pathname: loggedInPath,
+                }}
+              />
+            );
+          }
+
+          return null;
         }}
       />
     </Routes>
@@ -34,14 +38,18 @@ export function ProtectedRoute({ user, children, ...rest }) {
             return children;
           }
 
-          return (
-            <Navigate
-              to={{
-                pathname: '/signin', 
-                state: { from: location },
-              }}
-            />
-          );
+          if(!user){
+            return (
+              <Navigate
+                to={{
+                  pathname: 'signin', 
+                  state: { from: location },
+                }}
+              />
+            );
+          }
+
+          return null;
         }}
       />
     </Routes>
